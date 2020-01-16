@@ -107,6 +107,10 @@
     4、访问Dashboard页面
     https://ec2-52-82-59-169.cn-northwest-1.compute.amazonaws.com.cn:30443/#!/login
     5、如果希望本地访问Dashboard页面
+    通过 kubectl porxy
+
+    然后访问
+    http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
     服务端端口转发
     kubectl port-forward svc/kubernetes-dashboard -n kube-system 28443:443
     本地端口转发
@@ -114,6 +118,7 @@
 
     5、解决认证问题
     直接允许跳过登录
+    kubectl apply -f https://raw.githubusercontent.com/Czkl/k8s-kops-aws/master/dashboard-adminuser.yaml
     kubectl apply -f https://raw.githubusercontent.com/TW-China/dolphin_infra/master/dashboard-admin.yml
     或者获取token后登录
     kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token
