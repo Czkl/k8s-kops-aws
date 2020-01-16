@@ -103,14 +103,16 @@
     kubectl --namespace=kube-system get deployment kubernetes-dashboard
     kubectl --namespace=kube-system get service kubernetes-dashboard
 
+    删除Dashboard
+    kubectl delete -f https://raw.githubusercontent.com/Czkl/k8s-kops-aws/master/kubernetes-dashboard.yaml
+
     3、修改master的安全组，放开端口30443。
     4、访问Dashboard页面
     https://ec2-52-82-59-169.cn-northwest-1.compute.amazonaws.com.cn:30443/#!/login
     5、如果希望本地访问Dashboard页面
-    通过 kubectl porxy
-
-    然后访问
-    http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+        通过 kubectl porxy
+        然后访问
+        http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
     服务端端口转发
     kubectl port-forward svc/kubernetes-dashboard -n kube-system 28443:443
     本地端口转发
