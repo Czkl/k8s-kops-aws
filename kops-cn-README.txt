@@ -123,7 +123,7 @@
     kubectl apply -f https://raw.githubusercontent.com/Czkl/k8s-kops-aws/master/dashboard-adminuser.yaml
     kubectl apply -f https://raw.githubusercontent.com/TW-China/dolphin_infra/master/dashboard-admin.yml
     或者获取token后登录
-    kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-system -o name | grep namespace) | grep token
+    kubectl -n kubernetes-dashboard describe $(kubectl -n kubernetes-dashboard get secret -n kube-system -o name | grep namespace) | grep token
 
 六、手动部署网站（可在jenkins完成）
     1、登录到master执行部署脚本(也可在本地部署)
