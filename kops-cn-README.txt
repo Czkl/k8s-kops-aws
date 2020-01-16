@@ -99,7 +99,7 @@
     ssh -i "$KOPS_CN_PATH/dolphin-k8s.pem" admin@ec2-52-82-59-169.cn-northwest-1.compute.amazonaws.com.cn
 
     2、安装Dashboard并查看安装结果
-    kubectl apply -f https://raw.githubusercontent.com/TW-China/dolphin_infra/master/kubernetes-dashboard.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Czkl/k8s-kops-aws/master/kubernetes-dashboard.yaml
     kubectl --namespace=kube-system get deployment kubernetes-dashboard
     kubectl --namespace=kube-system get service kubernetes-dashboard
 
